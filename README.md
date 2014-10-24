@@ -1,7 +1,8 @@
 ssh-askpass
 ===========
 
-ssh-askpass for OSX.
+ssh-askpass for OSX. (Yosemite ready!)
+
 Used to accept(or deny) the use of the private key(s) added to the authentication agent with "ssh-add -c".
 
 ![Screenshot](https://github.com/theseal/ssh-askpass/raw/master/sample/ssh-askpass.png)
