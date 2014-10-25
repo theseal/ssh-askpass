@@ -1,7 +1,7 @@
 ssh-askpass
 ===========
 
-ssh-askpass for OSX. (Yosemite ready!)
+ssh-askpass for OS X. Works in (at least) 10.7+ (including Yosemite)
 
 Used to accept(or deny) the use of the private key(s) added to the authentication agent with "ssh-add -c".
 
