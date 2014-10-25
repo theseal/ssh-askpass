@@ -12,5 +12,9 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
     $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
     $ chmod +x /usr/libexec/ssh-askpass
 
-### Thanks
+## License
+ISC license
+
+## Contributors
+[theseal](https://github.com/theseal)
 [simmel](https://github.com/simmel)
