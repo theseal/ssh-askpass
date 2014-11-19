@@ -12,6 +12,16 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
     $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
     $ chmod +x /usr/libexec/ssh-askpass
 
+## Enabling keyboard navigation
+For security reasons ssh-askpass defaults to cancel since it's too easy to
+press spacebar and accept a connection or other actions which might use
+ssh-keys. To make it easier to press `OK`:
+
+* Go to `System Preferences` and then `Keyboard`.
+* Under the `Keyboard` tab, click on `All controls`.
+
+Now you can press ⇥+spacebar to press `OK`.
+
 ## License
 ISC license
 

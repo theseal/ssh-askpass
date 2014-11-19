@@ -22,7 +22,7 @@ on run argv
     set args to argv as text
     set frontmost_application to name of (info for (path to frontmost application))
     tell application frontmost_application
-        display dialog args with icon caution
+        display dialog args with icon caution default button "Cancel"
         if result = {button returned:"OK"} then
             return
         end if
