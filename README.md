@@ -19,6 +19,7 @@ $ chmod +x /usr/libexec/ssh-askpass
 
     ```
     $ sudo ln -s $PWD/ssh-askpass /usr/X11R6/bin/ssh-askpass
+    $ sudo mkdir -p /usr/X11R6/bin 
     $ chmod +x /usr/X11R6/bin/ssh-askpass
     ```
 * [Enable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
