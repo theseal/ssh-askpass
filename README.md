@@ -8,12 +8,24 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 ![Screenshot](https://github.com/theseal/ssh-askpass/raw/master/sample/ssh-askpass.png)
 
 ## Installation
-### OS X Pre 10.11
+
+### [Homebrew](http://brew.sh/)
+* Run:
+
+    ```
+    $ brew tap theseal/ssh-askpass
+    $ brew install ssh-askpass
+    ```
+* Follow caveats
+
+### Without Homebrew
+
+#### OS X Pre 10.11
 ```
 $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
 $ chmod +x /usr/libexec/ssh-askpass
 ```
-### OS X 10.11+
+#### OS X 10.11+
 * [Disable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
 * Run:
 
