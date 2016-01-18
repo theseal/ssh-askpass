@@ -42,7 +42,10 @@ press spacebar and accept a connection or other actions which might use
 ssh-keys. To make it easier to press `OK`:
 
 * Go to `System Preferences` and then `Keyboard`.
+#### OS X Pre 10.11
 * Under the `Keyboard` tab, click on `All controls`.
+#### OS X 10.11+
+* Under the `Shortcuts` tab, click on `All controls`.
 
 Now you can press ⇥+spacebar to press `OK`.
 
