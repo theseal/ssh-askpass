@@ -23,7 +23,6 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 #### OS X Pre 10.11
 ```
 $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
-$ chmod +x /usr/libexec/ssh-askpass
 ```
 #### OS X 10.11+
 * [Disable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
@@ -32,7 +31,6 @@ $ chmod +x /usr/libexec/ssh-askpass
     ```
     $ sudo mkdir -p /usr/X11R6/bin
     $ sudo ln -s $PWD/ssh-askpass /usr/X11R6/bin/ssh-askpass 
-    $ chmod +x /usr/X11R6/bin/ssh-askpass
     ```
 * [Enable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
 
