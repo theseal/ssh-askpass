@@ -7,6 +7,8 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 
 ![Screenshot](https://github.com/theseal/ssh-askpass/raw/master/sample/ssh-askpass.png)
 
+**If you’re having trouble with ssh-askpass after OS upgrade, please follow the installation steps again.**
+
 ## Installation
 
 ### [Homebrew](http://brew.sh/)
