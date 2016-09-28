@@ -22,11 +22,11 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 
 ### Without Homebrew
 
-#### OS X Pre 10.11
+#### Pre 10.11
 ```
 $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
 ```
-#### OS X 10.11+
+#### 10.11+
 
 * If you have XQuartz (http://www.xquartz.org/) or are willing to get it:
     * Make sure that the latest XQuartz is installed. (eg. brew cask install xquartz)
@@ -52,10 +52,10 @@ ssh-keys. To make it easier to press `OK`:
 
 * Go to `System Preferences` and then `Keyboard`.
 
-#### OS X Pre 10.11
+#### Pre 10.11
 * Under the `Keyboard` tab, click on `All controls`.
 
-#### OS X 10.11+
+#### 10.11+
 * Under the `Shortcuts` tab, click on `All controls`.
 
 Now you can press ⇥+spacebar to press `OK`.
