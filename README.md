@@ -45,6 +45,7 @@ $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
     ```
     * [Enable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
 * Without SIP:
+
     ```
     sudo tee /Library/LaunchAgents/com.openssh.ssh-agent-custom.plist <<EOF
     <?xml version="1.0" encoding="UTF-8"?>
