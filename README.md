@@ -44,6 +44,42 @@ $ sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
     $ sudo ln -s $PWD/ssh-askpass /usr/X11R6/bin/ssh-askpass
     ```
     * [Enable SIP (rootless)](http://www.imore.com/el-capitan-system-integrity-protection-helps-keep-malware-away)
+* Without SIP:
+
+    ```
+    sudo tee /Library/LaunchAgents/com.openssh.ssh-agent-custom.plist <<EOF
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+            <key>Label</key>
+            <string>com.openssh.ssh-agent-custom</string>
+            <key>ProgramArguments</key>
+            <array>
+                    <string>/usr/bin/ssh-agent</string>
+                    <string>-l</string>
+            </array>
+            <key>EnvironmentVariables</key>
+            <dict>
+                    <key>SSH_ASKPASS</key>
+                    <string>/usr/local/bin/ssh-askpass</string>
+                    <key>DISPLAY</key>
+                    <string>0</string>
+            </dict>
+            <key>Sockets</key>
+            <dict>
+                    <key>Listeners</key>
+                    <dict>
+                            <key>SecureSocketWithKey</key>
+                            <string>SSH_AUTH_SOCK</string>
+                    </dict>
+            </dict>
+            <key>EnableTransactions</key>
+            <true/>
+    </dict>
+    </plist>
+    EOF
+    ```
 
 ## Enabling keyboard navigation
 For security reasons ssh-askpass defaults to cancel since it's too easy to
