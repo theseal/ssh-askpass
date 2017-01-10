@@ -14,10 +14,6 @@
 # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 # PERFORMANCE OF THIS SOFTWARE.
 
-# Installation:
-# sudo ln -s $PWD/ssh-askpass /usr/libexec/ssh-askpass
-# chmod +x /usr/libexec/ssh-askpass
-
 on run argv
     set args to argv as text
     set frontmost_application to name of (info for (path to frontmost application))
