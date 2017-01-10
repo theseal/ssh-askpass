@@ -3,7 +3,7 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>com.openssh.ssh-agent-ssh-askpass</string>
+        <string>com.github.theseal.ssh-askpass</string>
         <key>ProgramArguments</key>
         <array>
             <string>/usr/bin/ssh-agent</string>
