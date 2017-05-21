@@ -1,27 +1,68 @@
-#!/usr/bin/env osascript
-# Copyright (c) 2014-, Johan Carlquist <johan@rymdvarel.se>
-# Copyright (c) 2011-, Simon Lundström <simmel@soy.se>
-#
-# Permission to use, copy, modify, and/or distribute this software for any
-# purpose with or without fee is hereby granted, provided that the above
-# copyright notice and this permission notice appear in all copies.
-#
-# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-# REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
-# FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-# INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-# OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-# PERFORMANCE OF THIS SOFTWARE.
+#!/usr/bin/env osascript -l JavaScript
+/*
+    Copyright (c) 2017-, Alexander Regueiro <alex@noldorin.com>
+    Copyright (c) 2014-, Johan Carlquist <johan@rymdvarel.se>
+    Copyright (c) 2011-, Simon Lundström <simmel@soy.se>
+    
+    Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+    
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+*/
 
-on run argv
-    set args to argv as text
-    set frontmost_application to name of (info for (path to frontmost application))
-    tell application frontmost_application
-        display dialog args with icon caution default button "Cancel"
-        if result = {button returned:"OK"} then
-            return
-        end if
-        return false
-    end tell
-end run
+ObjC.import('stdlib');
+ObjC.import('stdio');
+ObjC.import('unistd');
+ObjC.import('Foundation');
+
+function getParentApp() {
+    var app;
+    try {
+        app = Application($.getppid());
+    } catch(e) {
+        app = null;
+    }
+    return app;
+}
+
+function run(argv) {
+    var prompt = argv[0] || "Authentication password:";
+    
+    var query = prompt.split('\n')[0].trimRight();
+    var is_query_binary = query.endsWith('?');
+    var is_query_sensitive = /password|passphrase|pin/i.test(query);
+    
+    var app = getParentApp() || Application("SystemUIServer");
+    app.includeStandardAdditions = true;
+    try {
+        var dialogOpts = {
+            withTitle: "ssh-askpass",
+            subtitle: app.name(),
+            withIcon: "caution",
+            buttons: ["Cancel", "OK"],
+            defaultButton: "Cancel",
+            givingUpAfter: 30,
+        };
+        if (!is_query_binary) {
+            dialogOpts.defaultAnswer = "";
+            dialogOpts.hiddenAnswer = is_query_sensitive;
+        }
+        var result = app.displayDialog(prompt, dialogOpts);
+        if (result.gaveUp) {
+            $.exit(1);
+        }
+        
+        switch (result.buttonReturned) {
+        case "OK":
+            var entry = result.textReturned;
+            $.puts(entry);
+            $.exit(0);
+        case "Cancel":
+        default:
+            $.exit(1);
+        }
+    } catch (e) {
+        $.exit(1);
+    }
+}
