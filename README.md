@@ -24,7 +24,7 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 
 * Run:
 ```
-$ sudo cp ssh-askpass /usr/local/bin/
+$ cp ssh-askpass /usr/local/bin/
 $ cp ssh-askpass.plist ~/Library/LaunchAgents/
 ```
 * Log out and in before you can add keys to the agent with `ssh-add -c`
