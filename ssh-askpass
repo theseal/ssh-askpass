@@ -20,13 +20,13 @@ on run argv
     tell application frontmost_application
         if args ends with ": " or args ends with ":" then
             if args contains "pass" or args contains "pin" then
-                display dialog args with icon caution default button "OK" default answer "" with hidden answer
+                display dialog args with icon caution default button {get localized string of "OK"} default answer "" with hidden answer
             else
-                display dialog args with icon caution default button "OK" default answer ""
+                display dialog args with icon caution default button {get localized string of "OK"} default answer ""
             end if
             return result's text returned
         else
-            display dialog args with icon caution default button "Cancel"
+            display dialog args with icon caution default button {get localized string of "Cancel"}
             return
         end if
     end tell
