@@ -6,25 +6,14 @@
         <string>com.github.theseal.ssh-askpass</string>
         <key>ProgramArguments</key>
         <array>
-            <string>/usr/bin/ssh-agent</string>
-            <string>-l</string>
+            <string>/bin/sh</string>
+            <string>-pc</string>
+            <string>#!/bin/sh
+launchctl setenv SSH_ASKPASS "${SSH_ASKPASS:=/usr/local/bin/ssh-askpass}"
+launchctl setenv DISPLAY "${DISPLAY:=0}" # only if not already set by Xquartz
+            </string>
         </array>
-        <key>EnvironmentVariables</key>
-        <dict>
-            <key>SSH_ASKPASS</key>
-            <string>/usr/local/bin/ssh-askpass</string>
-            <key>DISPLAY</key>
-            <string>0</string>
-        </dict>
-        <key>Sockets</key>
-        <dict>
-            <key>Listeners</key>
-            <dict>
-                <key>SecureSocketWithKey</key>
-                <string>SSH_AUTH_SOCK</string>
-            </dict>
-        </dict>
-        <key>EnableTransactions</key>
+        <key>RunAtLoad</key>
         <true/>
     </dict>
 </plist>
