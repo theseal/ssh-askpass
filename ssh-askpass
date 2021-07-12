@@ -1,4 +1,4 @@
-#!/usr/bin/env osascript
+#!/usr/bin/osascript
 # Copyright (c) 2014-, Johan Wassberg <johan@rymdvarel.se>
 # Copyright (c) 2011-, Simon Lundström <simmel@soy.se>
 #
@@ -16,8 +16,7 @@
 
 on run argv
     set args to argv as text
-    set frontmost_application to name of (info for (path to frontmost application))
-    tell application frontmost_application
+    tell application "System Events"
         if args ends with ": " or args ends with ":" then
             if args contains "pass" or args contains "pin" then
                 display dialog args with icon caution default button {get localized string of "OK"} default answer "" with hidden answer
