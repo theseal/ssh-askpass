@@ -13,6 +13,7 @@
             <string>#!/bin/sh
 launchctl setenv SSH_ASKPASS "${SSH_ASKPASS:=/usr/local/bin/ssh-askpass}"
 launchctl setenv DISPLAY "${DISPLAY:=0}" # only if not already set by Xquartz
+launchctl stop com.openssh.ssh-agent # to make sure it picks up environment
             </string>
         </array>
         <key>RunAtLoad</key>
