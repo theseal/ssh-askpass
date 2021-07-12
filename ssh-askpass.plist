@@ -4,6 +4,8 @@
     <dict>
         <key>Label</key>
         <string>com.github.theseal.ssh-askpass</string>
+        <key>LimitLoadToSessionType</key>
+        <string>Aqua</string>
         <key>ProgramArguments</key>
         <array>
             <string>/bin/sh</string>
