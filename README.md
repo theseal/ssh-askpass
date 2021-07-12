@@ -25,8 +25,10 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 ```
 $ cp ssh-askpass /usr/local/bin/
 $ cp ssh-askpass.plist ~/Library/LaunchAgents/
+$ launchctl load -w ~/Library/LaunchAgents/ssh-askpass.plist
+$ launchctl stop com.openssh.ssh-agent
 ```
-* Log out and in before you can add keys to the agent with `ssh-add -c`
+* No need to log out; you can add keys to the agent with `ssh-add -c`
 
 ## Enabling keyboard navigation
 For security reasons ssh-askpass defaults to cancel since it's too easy to
