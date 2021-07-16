@@ -18,10 +18,10 @@ on run argv
     set args to argv as text
     set frontmost_application to name of (info for (path to frontmost application))
     set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
-    tell application "System Events"
+    tell application frontmost_application
         if args ends with ": " or args ends with ":" then
             if args contains "pass" or args contains "pin" then
-                display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
+                tell application "System Events" to display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
             else
                 display dialog args with icon agent default button {get localized string of "OK"} default answer ""
             end if
