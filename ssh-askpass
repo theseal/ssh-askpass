@@ -16,19 +16,27 @@
 
 on run argv
     set args to argv as text
-    set frontmost_application to name of (info for (path to frontmost application))
+    launch application "System Events"
     set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
-    tell application frontmost_application
-        if args ends with ": " or args ends with ":" then
-            if args contains "pass" or args contains "pin" then
-                tell application "System Events" to display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
+    try
+        tell application "System Events"
+            if args ends with ": " or args ends with ":" then
+                if args contains "pass" or args contains "pin" then
+                    set response to display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
+                else
+                    set response to display dialog args with icon agent default button {get localized string of "OK"} default answer ""
+                end if
+                set text_returned to text returned of response
+                quit
             else
-                display dialog args with icon agent default button {get localized string of "OK"} default answer ""
+                set response to display dialog args with icon agent default button {get localized string of "Cancel"}
+                set text_returned to ""
+                quit
             end if
-            return result's text returned
-        else
-            display dialog args with icon agent default button {get localized string of "Cancel"}
-            return
-        end if
-    end tell
+        end tell
+        return text_returned
+    on error e number n
+        tell application "System Events" to quit
+        error e
+    end try
 end run
