@@ -33,7 +33,11 @@ on run argv
             end if
             quit
         end tell
-        return text_returned
+        if text_returned is not "" then
+            return text_returned
+        else
+            return
+        end if
     on error e number n
         tell application "System Events" to quit
         error e
