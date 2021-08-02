@@ -27,12 +27,11 @@ on run argv
                     display dialog args with icon agent default button {get localized string of "OK"} default answer ""
                 end if
                 set text_returned to result's text returned
-                quit
             else
                 display dialog args with icon agent default button {get localized string of "Cancel"}
                 set text_returned to ""
-                quit
             end if
+            quit
         end tell
         return text_returned
     on error e number n
