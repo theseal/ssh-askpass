@@ -16,7 +16,6 @@
 
 on run argv
     set args to argv as text
-    launch application "System Events"
     set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
     try
         tell application "System Events"
