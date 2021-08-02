@@ -22,14 +22,14 @@ on run argv
         tell application "System Events"
             if args ends with ": " or args ends with ":" then
                 if args contains "pass" or args contains "pin" then
-                    set response to display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
+                    display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
                 else
-                    set response to display dialog args with icon agent default button {get localized string of "OK"} default answer ""
+                    display dialog args with icon agent default button {get localized string of "OK"} default answer ""
                 end if
-                set text_returned to text returned of response
+                set text_returned to result's text returned
                 quit
             else
-                set response to display dialog args with icon agent default button {get localized string of "Cancel"}
+                display dialog args with icon agent default button {get localized string of "Cancel"}
                 set text_returned to ""
                 quit
             end if
