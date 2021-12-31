@@ -39,8 +39,11 @@ ssh-keys. To make it easier to press `OK`:
 #### Pre 10.11
 * Under the `Keyboard` tab, click on `All controls`.
 
-#### 10.11+
+#### 10.11-10.14
 * Under the `Shortcuts` tab, click on `All controls`.
+
+#### 10.15+
+* At the bottom of the `Shortcuts` tab, check option `Use keyboard navigation to move focus between controls`.
 
 Now you can press ⇥+spacebar to press `OK`.
 
