@@ -11,7 +11,7 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 
 ## Installation
 
-### [Homebrew](http://brew.sh/)
+### [Homebrew](https://brew.sh/)
 * Run:
 
     ```
@@ -19,7 +19,14 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
     ```
 * Follow caveats
 
-### Without Homebrew
+### [MacPorts](https://www.macports.org)
+* Install:
+
+    ```
+    $ sudo port install ssh-askpass
+    ```
+
+### Without Homebrew/MacPorts
 
 * Run:
 ```
