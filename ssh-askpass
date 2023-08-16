@@ -29,7 +29,7 @@ on run argv
                 end if
                 set text_returned to result's text returned
             else
-                display dialog args with icon agent default button {get localized string of "Cancel"} giving up after dialog_timeout
+                display dialog args with icon agent default button 1 giving up after dialog_timeout
                 if gave up of result then
                     error result
                 end if
