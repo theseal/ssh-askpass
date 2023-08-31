@@ -16,7 +16,14 @@
 
 on run argv
     set args to argv as text
-    set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
+    considering numeric strings
+        set pre_catalina to (system version of (system info)) < "10.15"
+    end considering
+    if pre_catalina then
+        set agent to POSIX file "/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
+    else
+        set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
+    end if
     set dialog_timeout to 15
 
     if args ends with ": " or args ends with ":" then
