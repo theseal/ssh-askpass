@@ -19,13 +19,6 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
     ```
 * Follow caveats
 
-### [MacPorts](https://www.macports.org)
-* Install:
-
-    ```
-    $ sudo port install ssh-askpass
-    ```
-
 ### Without Homebrew/MacPorts
 
 * Run:
