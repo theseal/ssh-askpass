@@ -15,7 +15,7 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 * Run:
 
     ```
-    $ brew install theseal/ssh-askpass/ssh-askpass
+    $ brew install michaelroosz/ssh/ssh-askpass
     ```
 * Follow caveats
 
