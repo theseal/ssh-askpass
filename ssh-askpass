@@ -32,18 +32,11 @@ on run argv
         else
             display dialog args with icon agent default button {get localized string of "OK"} default answer ""
         end if
-        set text_returned to result's text returned
+        return result's text returned
     else
         display dialog args with icon agent default button 1 giving up after dialog_timeout
         if gave up of result then
             error result
         end if
-        set text_returned to ""
-    end if
-
-    if text_returned is not "" then
-        return text_returned
-    else
-        return
     end if
 end run
