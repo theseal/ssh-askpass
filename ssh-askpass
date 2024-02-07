@@ -26,7 +26,11 @@ on run argv
     end if
     set dialog_timeout to 15
 
-    if args ends with ": " or args ends with ":" then
+    set prompt to system attribute "SSH_ASKPASS_PROMPT"
+    # prompt = "confirm" is the same as our else, so just let it pass though
+    if prompt is "none" then
+        display dialog args with icon agent default button 1 buttons { "OK" }
+    else if args ends with ": " or args ends with ":" then
         if args contains "pass" or args contains "pin" then
             display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
         else
