@@ -32,9 +32,9 @@ on run argv
         display dialog args with icon agent default button 1 buttons { "OK" }
     else if args ends with ": " or args ends with ":" then
         if args contains "pass" or args contains "pin" then
-            display dialog args with icon agent default button {get localized string of "OK"} default answer "" with hidden answer
+            display dialog args with icon agent default button 2 default answer "" with hidden answer
         else
-            display dialog args with icon agent default button {get localized string of "OK"} default answer ""
+            display dialog args with icon agent default button 2 default answer ""
         end if
         return result's text returned
     else if args contains " host " then
